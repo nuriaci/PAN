@@ -26,7 +26,7 @@ def respuestaAleatorizada (n,x):
 
 def verificarEmpiricamente():
     totalprob = 0
-    #Se realizan 100 simulaciones
+    #Se realizan 1000 simulaciones
     for i in range(0,1000):
         n = random.randint(1, 30)
         p = random.random()
