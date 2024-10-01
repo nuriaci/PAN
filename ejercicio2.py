@@ -2,8 +2,7 @@ import random
 import numpy as np
 import matplotlib.pyplot as plt
 
-#3/4
-
+#implementa la estrategia de RA de 'dos monedas' descrita anteriormente produciendo un vector con las salidas
 def respuestaAleatorizada (n,x):
 
     y = np.zeros(n)
@@ -32,7 +31,7 @@ def verificarEmpiricamente():
         p = random.random()
         contador = 0
     
-        #generar un vector con n datos simulados (verdaderos)
+        # genera un vector largo con 1's y 0's de manera que la probabilidad de un 1 esté dada por un parámetro p (verdaderos)
         x = np.random.binomial(1, p, n) #IA - chatgpt
         #vector de respuestas aleatorizada RA
         y =respuestaAleatorizada(n,x)
@@ -43,10 +42,7 @@ def verificarEmpiricamente():
     
         prob = contador/n #calculamos la probabilidad
     
-        #print(f"Dados n={n} estudiantes con probabilidad={p :.2f}")
-        #print("El valor de Y es",prob)
         totalprob += prob
-    
     print(f"La probabilidad promedia tras 1000 simulaciones es de {totalprob/1000 :.2f}")
     
     
