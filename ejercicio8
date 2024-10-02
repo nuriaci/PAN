@@ -1,0 +1,6 @@
+¿Aumenta la privacidad de los estudiantes?
+Si, la privacidad si que aumenta. Esto se debe a que la salida del proceso, representada por'q', es solo una aproximación,
+de los valores reales de los estudiantes 'Yi', por lo que el adversario no tiene un acceso directo a este conjunto de datos reales.
+Además, el mecanismo de R.A. (respuesta aleatorizada) permite aleatorizar las respuestas mediante el lanzamiento de una moneda,
+resguardando aún más la privacidad de los estudiantes. Como resultado, el adversario no pueda determinar con certeza si una 
+respuesta de un estudiante'Yi' es verdadera o falsa.
