@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 def respuestaAleatorizada (n,p):
     x = np.random.binomial(1, p, n) #IA - chatgpt  
-    y = np.zeros(n) #respuesta
+    y = np.zeros(n)
     acertar=0
     trampa=0
     opciones = ["cara", "cruz"]
@@ -12,13 +12,13 @@ def respuestaAleatorizada (n,p):
     for i in range(0,n): #Implementar mecanismo R.A.
         primera_opcion = random.choice(opciones) 
         if primera_opcion == "cara":
-           y[i] = x[i] #dice la verdad
-        else: #cruz -> no dice la verdad 
+           y[i] = x[i] 
+        else: 
             segunda_opcion = random.choice(opciones)
             if segunda_opcion == "cara":
                 y[i] = 1
 
-    for i in range(0,n): #comparar resultados
+    for i in range(0,n): 
         if(y[i]==x[i]):
             acertar +=1
         else:

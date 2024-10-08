@@ -8,10 +8,10 @@ def respuestaAleatorizada (n,p,gamma):
     Y = np.zeros(n)
     
     for i in range(n):
-        if np.random.rand() < gamma:
+        if np.random.random() < gamma:
             Y[i] = X[i]  # Responde con la verdad
         else:
-            Y[i] = 1 if np.random.rand() < 0.5 else 0
+            Y[i] = 1 if np.random.random() < 0.5 else 0
 
     q = np.mean(Y)
     return q

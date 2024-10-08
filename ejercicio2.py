@@ -13,8 +13,8 @@ def respuestaAleatorizada (n,x):
         primera_opcion = random.choice(opciones)
         
         if primera_opcion == "cara":
-           y[i] = x[i] #dice la verdad
-        else: #cruz -> no dice la verdad 
+           y[i] = x[i] 
+        else: 
             segunda_opcion = random.choice(opciones)
             if segunda_opcion == "cara":
                 y[i] = 1
