@@ -5,8 +5,7 @@ import matplotlib.pyplot as plt
 def respuestaAleatorizada (n,p):
     x = np.random.binomial(1, p, n) #IA - chatgpt  
     y = np.zeros(n)
-    acertar=0
-    trampa=0
+    coincidir=0
     opciones = ["cara", "cruz"]
     
     for i in range(0,n): #Implementar mecanismo R.A.
@@ -17,30 +16,28 @@ def respuestaAleatorizada (n,p):
             segunda_opcion = random.choice(opciones)
             if segunda_opcion == "cara":
                 y[i] = 1
-
+    
     for i in range(0,n): 
         if(y[i]==x[i]):
-            acertar +=1
-        else:
-            trampa +=1
+            coincidir +=1
             
-    acertar = acertar/n
-    trampa = trampa/n
+    coincidir = coincidir/n
     
-    return acertar,trampa
+    q = np.mean(y) 
+    
+    return q,coincidir
 
-def aux(p,y):
+def aux(p):
     n = 1000
-    acertar,trampa =respuestaAleatorizada(n,p)
+    q, coincidir =respuestaAleatorizada(n,p)
     
-    q = acertar * trampa + (1 - acertar)*(1 - trampa)
-    
-    if y == 0:
-        Estimador_p = 0
+    if (coincidir==0 or coincidir==0.5):
+        estimador_p=0
     else:
-        Estimador_p = (y - 1 + q) / (2 * y - 1)
+        estimador_p = (q - (1 - coincidir)) / (2 * coincidir - 1)
+   
     
-    return Estimador_p
+    return estimador_p
 
 
 def verificarEmpiricamente():
@@ -48,12 +45,11 @@ def verificarEmpiricamente():
     contador = 0
     total_dif = 0
     p = random.random()
-    y = random.random()
     diferencias = []
     
     for i in range(0,50):
-        Estimador_p = aux(p,y)
-        dif = p - Estimador_p
+        estimador_p = aux(p)
+        dif = p - estimador_p
         diferencias.append(dif) 
         total_dif += dif
         contador +=1
