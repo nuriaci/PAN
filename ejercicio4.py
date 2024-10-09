@@ -31,7 +31,7 @@ def aux(p):
     n = 1000
     q, coincidir =respuestaAleatorizada(n,p)
     
-    if (coincidir==0 or coincidir==0.5):
+    if (coincidir==0.5):
         estimador_p=0
     else:
         estimador_p = (q - (1 - coincidir)) / (2 * coincidir - 1)
