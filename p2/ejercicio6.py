@@ -18,7 +18,7 @@ def q1(bd, epsilon):
     print("Media: ", mediaEdades)
     print("Media privada:", mediaDP)
     
-    return mediaDP
+    return mediaEdades,mediaDP
     
 def q2(bd, epsilon):
     n = len(bd["Edad"])
@@ -31,7 +31,7 @@ def q2(bd, epsilon):
     print("Mediana: ", medianaEdades)
     print("Mediana privada:", medianaDP)
     
-    return medianaDP
+    return medianaEdades, medianaDP
 
 def q3(bd,epsilon):
     g1 = bd["SB1"].sum()#chatGPT
@@ -46,16 +46,20 @@ def q3(bd,epsilon):
     
     print("Número de 1s en SB1 - privado:",G1)
     print("Número de 1s en SB2 - privado:",G2)
+    
+    return g1,g2,G1,G2
 
-def q4(bd,epsilon):
-    histograma = np.histogram(bd["Edad"],bins=range(127))
+def q4(bd,epsilon,n):
+    histograma = np.histogram(bd["Edad"],bins=range(127))[0]
     
     sensibilidad = n # o 2
-    ruido_hist = np.random.laplace(loc = 0,scale=sensibilidad/epsilon)
+    ruido_hist = np.random.laplace(loc = 0,scale=sensibilidad/epsilon,size=histograma.shape)
     
     histFinal = histograma + ruido_hist
 
     print("Histograma:",histFinal)
+    
+    return histograma, histFinal
   
 
 
@@ -77,4 +81,4 @@ if __name__ == "__main__":
     q3(bd,epsilon)
     
     print("\nEjercicio4")
-    q3(bd,epsilon)
+    q4(bd,epsilon,n)
