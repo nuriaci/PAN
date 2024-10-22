@@ -87,5 +87,5 @@ def q7(n,epsilon):
 
 if __name__ == "__main__":
     n = [101,1001,10001]
-    epsilon = int(input("\nIntroduce el valor de epsilon:"))
+    epsilon = float(input("\nIntroduce el valor de epsilon:"))
     q7(n,epsilon)

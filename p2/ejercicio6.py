@@ -70,7 +70,7 @@ def q4(bd,epsilon):
 if __name__ == "__main__":
     print("Práctica #2: Mecanismo Laplaciano\n")
     n = int(input("\nIntroduce el valor de n:"))
-    epsilon = int(input("\nIntroduce el valor de epsilon:"))
+    epsilon = float(input("\nIntroduce el valor de epsilon:"))
     bd = generar_bd(n)
     
     print(bd)
