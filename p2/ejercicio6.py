@@ -49,10 +49,10 @@ def q3(bd,epsilon):
     
     return g1,g2,G1,G2
 
-def q4(bd,epsilon,n):
+def q4(bd,epsilon):
     histograma = np.histogram(bd["Edad"],bins=range(127))[0]
     
-    sensibilidad = n # o 2
+    sensibilidad = 2
     ruido_hist = np.random.laplace(loc = 0,scale=sensibilidad/epsilon,size=histograma.shape)
     
     histFinal = histograma + ruido_hist
