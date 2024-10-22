@@ -54,7 +54,7 @@ def q3(bd,epsilon):
     return g1,g2,G1,G2
 
 def q4(bd,epsilon):
-    histograma = np.histogram(bd["Edad"],bins=range(127))[0]
+    histograma = np.histogram(bd["Edad"],bins=range(127))[0]#chatGPT
     
     sensibilidad = 2
     ruido_hist = np.random.laplace(loc = 0,scale=sensibilidad/epsilon,size=histograma.shape)
