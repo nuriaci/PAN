@@ -41,7 +41,7 @@ def q7(n,epsilon):
         results_verdaderos[i]["Q1"][m-1],results_privados[i]["Q1"][m-1] = ejercicio6.q1(bd,epsilon)
         results_verdaderos[i]["Q2"][m-1],results_privados[i]["Q2"][m-1]= ejercicio6.q2(bd,epsilon)
         results_verdaderos[i]["Q3"]["g1"][m-1],  results_verdaderos[i]["Q3"]["g2"][m-1],results_privados[i]["Q3"]["g1"][m-1], results_privados[i]["Q3"]["g2"][m-1] = ejercicio6.q3(bd,epsilon)
-        results_verdaderos[i]["Q4"][m-1],results_privados[i]["Q4"][m-1]= ejercicio6.q4(bd,epsilon,i)
+        results_verdaderos[i]["Q4"][m-1],results_privados[i]["Q4"][m-1]= ejercicio6.q4(bd,epsilon)
         
         #NRMSD
         results_NRMSD[i]["Q1"][m-1] = nrmsd(results_verdaderos[i]["Q1"][m-1],results_privados[i]["Q1"][m-1])

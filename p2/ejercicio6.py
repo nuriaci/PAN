@@ -37,7 +37,11 @@ def q3(bd,epsilon):
     g1 = bd["SB1"].sum()#chatGPT
     g2 = bd["SB2"].sum()
     
-    sensibilidad = 0
+    if g1 + g2 == len(bd):
+       sensibilidad = 0
+    else: 
+        sensibilidad = 2
+        
     ruido_g1 = np.random.laplace(loc = 0,scale=sensibilidad/epsilon)
     ruido_g2 = np.random.laplace(loc = 0,scale=sensibilidad/epsilon)
    
@@ -81,4 +85,4 @@ if __name__ == "__main__":
     q3(bd,epsilon)
     
     print("\nEjercicio4")
-    q4(bd,epsilon,n)
+    q4(bd,epsilon)
