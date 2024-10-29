@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 
 def generate_error(m, alpha,q):
     desviacion = alpha * q
-    muestras = np.random.normal(0, desviacion, m) #chatgpt
+    muestras = np.random.normal(0, desviacion, m) #chatgpt  
     muestrasRedondeadas= np.round(muestras) 
     resultado = muestrasRedondeadas % q 
     muestras_final = np.where(resultado >= q / 2, resultado - q, resultado)#chatgpt

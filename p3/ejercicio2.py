@@ -24,7 +24,7 @@ for alpha in alpha_values:
     for i in range(1000):
         # Genera el vector secreto s y el vector aleatorio a
         s = np.random.choice([-1, 0, 1], size=n)
-        a = np.random.randint(-q // 2, q // 2, size=n)
+        a = np.random.randint(-q // 2, (q // 2) - 1, size=n)
         
         # Mensaje y cifrado
         m = 10
