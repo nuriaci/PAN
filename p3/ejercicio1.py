@@ -1,7 +1,5 @@
-import random 
 import numpy as np
 import matplotlib.pyplot as plt
-import pandas as pd
 
 def generate_error(m, alpha,q):
     desviacion = alpha * q
