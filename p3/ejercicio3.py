@@ -27,7 +27,7 @@ def ejercicio3(alpha):
     #Generar cifrado & Descifrar el resultado
     m_hat = np.round((bCombinado - np.dot(s, aCombinado)) / delta)
     
-    # Incrementa el contador si hay un error en el descifrado - chatgpt 
+    # Incrementa el contador si hay un error en el descifrado 
     #if m_hat != (m1 + m2): 
       #  resultado += 1
         
@@ -37,7 +37,6 @@ if __name__ == "__main__":
     Conjuntoalpha =  np.arange(5e-04,5e-03,5e-04)
 
     error_counts = []
-    #resultados = []
     for alpha in Conjuntoalpha:
         resultado = 0
         for i in range(1000):
