@@ -1,34 +1,35 @@
 import numpy as np
 import matplotlib.pyplot as plt
-import ejercicio2
+import ejercicio1
 import pandas as pd
 
+# Parámetros 
 delta = 2**10
 n = 256
 q = 2**16
 
 def ejercicio3(alpha):
-    # Messages to be encrypted
+    # Mensajes - cifrar
     m1 = 10
     m2 = 8
 
-    # Generate secret vector s and random vectors a1 and a2 within the modular range
+    # Genera el vector secreto s y los vectores aleatorios a1 y a2 
     s = np.random.choice([-1, 0, 1], size=n)
     a1 = np.random.randint(-q // 2, (q // 2) -1, size=n)
     a2 = np.random.randint(-q // 2, (q // 2) - 1, size=n)
 
-    # Encrypt messages with Gaussian error
-    b1 = (np.dot(s, a1) + delta * m1 + ejercicio2.generate_error(1, alpha, q)) % q
-    b2 = (np.dot(s, a2) + delta * m2 + ejercicio2.generate_error(1, alpha, q)) % q
+    # Cifra los mensajes con error Gaussiano - chatgpt
+    b1 = (np.dot(s, a1) + delta * m1 + ejercicio1.generate_error(1, alpha, q)) % q
+    b2 = (np.dot(s, a2) + delta * m2 + ejercicio1.generate_error(1, alpha, q)) % q
 
-    # Homomorphic addition of ciphertexts
+    # Suma homomórfica de los cifrados
     aCombinado = (a1 + a2) % q
     bCombinado = (b1 + b2) % q
 
-    # Decrypt the combined ciphertext, with rounding and modular adjustment
+    # Descifra el cifrado combinado
     m_hat = np.round(((bCombinado - np.dot(s, aCombinado)) % q) / delta)
     
-    # Return True if there's a decryption error
+    # Devuelve True si hay un error de descifrado
     return m_hat != (m1 + m2)
 
 if __name__ == "__main__":
@@ -42,6 +43,6 @@ if __name__ == "__main__":
                 resultado += 1
         error_counts.append(resultado)
 
-    # Display results in a table
+     # Muestra los resultados en forma de tabla
     for alpha, errores in zip(Conjuntoalpha, error_counts):
-        print(f"Alpha: {alpha:.4f}, Errores: {errores}")
+      print(f"Alpha: {alpha:.4f}, Errores: {errores}")
