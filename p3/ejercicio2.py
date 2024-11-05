@@ -31,7 +31,7 @@ for alpha in alpha_values:
         # Calcula b usando s^T * a y el error escalar
         b = np.dot(s, a) + delta * m + generate_error(1, alpha, q)
         
-        # Descifrado
+        # Descifrado - chatgpt
         m_hat = np.round((b - np.dot(s, a)) / delta)
         
         # Incrementa el contador si hay un error en el descifrado
