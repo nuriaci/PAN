@@ -17,7 +17,7 @@ if __name__ == "__main__":
     for i in ConjuntoAlpha:
         generate_error(m, i,q)
     
-    # Graficamos el histograma para cada valor de alpha
+    # Graficamos el histograma para cada valor de alpha -chatgpt
     fig, axes = plt.subplots(1, 3, figsize=(18, 5))
     for i, alpha in enumerate(ConjuntoAlpha):
         errores = generate_error(m, alpha, q)

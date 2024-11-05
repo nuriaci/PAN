@@ -25,8 +25,7 @@ def ejercicio4(alpha):
     
     #Descifrar el resultado
     m_hat = np.round((b_prima - np.dot(s,a_prima)) % q / delta)
-    
-        
+         
     return m_hat != m * c
 
 if __name__ == "__main__":
