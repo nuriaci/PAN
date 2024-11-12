@@ -7,7 +7,7 @@ import pandas as pd
 q = 2**16
 delta = 2**10
 n = 256
-c = 4
+c = 10
 m = 3
 alpha_values = np.arange(5e-04,5e-03,5e-04) # Valores de alpha
 
