@@ -1,6 +1,6 @@
 import numpy as np
 import pandas as pd
-import ejercicio2  # Asegúrate de que esta función esté bien implementada
+import ejercicio1  # Asegúrate de que esta función esté bien implementada
 
 # Parámetros
 q = 2**16
@@ -27,18 +27,19 @@ def descomposition_gadget(c, p):
 def ejercicio5(alpha, c):
     # Genera el vector secreto s y el vector aleatorio a
     s = np.random.choice([-1, 0, 1], size=n)
-    a = np.random.randint(-q // 2, q // 2, size=n)  # Cambié el rango de a para incluir el límite superior
+    a_p = [np.random.randint(-q // 2, q // 2, size=n) for _ in range(p)]
     
+
     # Calcula b
-    error = ejercicio2.generate_error(1, alpha, q)  # Asegúrate que esta función devuelva un solo valor de error
-    b = (np.dot(s, a) + delta * m + error) % q
+    error = ejercicio1.generate_error(1, alpha, q) 
+    b = [(np.dot(s, a_p[i]) + delta * m * 2**(p*i) + error) % q for i in range(p)]
 
     # Generar los coeficientes de la descomposición gadget
     gadgetCoefs = descomposition_gadget(c, p)
 
     # Generar cifrado
-    a_gadget = sum((coef * (2**(p * i)) * a) % q for i, coef in enumerate(gadgetCoefs)) % q
-    b_gadget = sum((coef * (2**(p * i)) * b) % q for i, coef in enumerate(gadgetCoefs)) % q
+    a_gadget = sum((coef * a_p[i]) for i, coef in enumerate(gadgetCoefs)) % q
+    b_gadget = sum((coef * b[i]) for i, coef in enumerate(gadgetCoefs)) % q
 
     # Descifrar el resultado
     m_hat = np.round((b_gadget - np.dot(s, a_gadget)) % q / delta)
