@@ -376,14 +376,7 @@ def anonymize(database: pd.DataFrame, quasi_identifiers: List[str], sensitive_co
 
 
 if __name__ == "__main__":
-   # df, quasi_identifiers, sensitive_column = build_data(type='adult', n=5000, path='C:/Users/nuria/Desktop/master/PAN/PAN/p4/anonymity_data/adult.csv')
-  #  anonymize(df, quasi_identifiers, sensitive_column, k=2)
-   # anonymize(df, quasi_identifiers, sensitive_column, k=2, l=2)
-    #anonymize(df, quasi_identifiers, sensitive_column, k=2, l=2, t=0.2)
-    import os
-
-# Imprimir la ruta absoluta a la carpeta 'anonymity_data'
-print("Ruta absoluta del archivo:", os.path.abspath('anonymity_data/adult.csv'))
-
-# Verifica si el archivo realmente existe en la ruta
-print("¿El archivo existe?", os.path.exists('C:/Users/nuria/Desktop/master/PAN/PAN/p4/anonymity_data/adult.csv'))
+    df, quasi_identifiers, sensitive_column = build_data(type='adult', n=5000, path='C:\\Users\\nuria\\Desktop\\master\\PAN\\PAN\\p4\\anonymity_data\\anonymity_data\\adult.csv')
+    anonymize(df, quasi_identifiers, sensitive_column, k=2)
+    anonymize(df, quasi_identifiers, sensitive_column, k=2, l=2)
+    anonymize(df, quasi_identifiers, sensitive_column, k=2, l=2, t=0.2)
