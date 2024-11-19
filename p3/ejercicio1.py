@@ -21,7 +21,7 @@ if __name__ == "__main__":
     fig, axes = plt.subplots(1, 3, figsize=(18, 5))
     for i, alpha in enumerate(ConjuntoAlpha):
         errores = generate_error(m, alpha, q)
-        axes[i].hist(errores, bins=range(-q // 2, q // 2), edgecolor='black', align='mid')
+        axes[i].hist(errores, bins=range(-q // 2, (q // 2) -1 ), edgecolor='black', align='mid')
         axes[i].set_title(f"Histograma de errores con α = {alpha}")
         axes[i].set_xlabel("Valor de error mod q")
         axes[i].set_ylabel("Frecuencia")
