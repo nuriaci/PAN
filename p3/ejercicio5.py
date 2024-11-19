@@ -27,15 +27,16 @@ def descomposition_gadget(c, p):
 def ejercicio5(alpha, c):
     # Genera el vector secreto s y el vector aleatorio a
     s = np.random.choice([-1, 0, 1], size=n)
-    a_p = [np.random.randint(-q // 2, q // 2, size=n) for _ in range(p)]
-    
-
-    # Calcula b
-    error = ejercicio1.generate_error(1, alpha, q) 
-    b = [(np.dot(s, a_p[i]) + delta * m * 2**(p*i) + error) % q for i in range(p)]
 
     # Generar los coeficientes de la descomposición gadget
     gadgetCoefs = descomposition_gadget(c, p)
+    
+    a_p = [np.random.randint(-q // 2, q // 2, size=n) for _ in range(len(gadgetCoefs))]
+    
+    # Calcula b
+    error = ejercicio1.generate_error(1, alpha, q) 
+    b = [(np.dot(s, a_p[i]) + delta * m * 2**(p*i) + error) % q for i in range(len(gadgetCoefs))]
+
 
     # Generar cifrado
     a_gadget = sum((coef * a_p[i]) for i, coef in enumerate(gadgetCoefs)) % q
